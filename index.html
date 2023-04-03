@@ -1,70 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Basic Website</title>
-	  <style>
-	  body {
-  background-color: #f2f2f2;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  color: #333;
-  text-align: center;
-}
-
-p {
-  color: #666;
-  font-size: 16px;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  padding: 10px;
-  background-color: #ddd;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
-
-li:hover {
-  background-color: #aaa;
-  color: #fff;
-}
-
-	  
-	  </style>
+    <title>My HTML Page</title>
   </head>
   <body>
-	  
-	function replaceDomain(url, oldDomain, newDomain) {
-  const regex = new RegExp(oldDomain, 'gi');
-  return url.replace(regex, newDomain);
-}
-
-
-    <h1>Welcome to my website!</h1>
-    <p>This is a paragraph of text on my website.</p>
-    <ul>
-      <li>List item 1</li>
-      <li>List item 2</li>
-      <li>List item 3</li>
-    </ul>
+    <p>Click the button to replace the domain in the URL:</p>
+    <input type="text" id="url" value="https://www.old-domain.com/path/to/page.html">
+    <input type="text" id="oldDomain" value="old-domain">
+    <input type="text" id="newDomain" value="new-domain">
+    <button onclick="replaceDomain()">Replace Domain</button>
     
     <script>
-	  const listItems = document.querySelectorAll('li');
-
-for (let i = 0; i < listItems.length; i++) {
-  listItems[i].addEventListener('click', function() {
-    alert(`You clicked on item ${i + 1}`);
-  });
-}
-
-	  
-	  </script>
+      function replaceDomain() {
+        const urlInput = document.getElementById('url');
+        const oldDomainInput = document.getElementById('oldDomain');
+        const newDomainInput = document.getElementById('newDomain');
+        
+        const url = urlInput.value;
+        const oldDomain = oldDomainInput.value;
+        const newDomain = newDomainInput.value;
+        
+        const regex = new RegExp(oldDomain, 'gi');
+        const newUrl = url.replace(regex, newDomain);
+        
+        urlInput.value = newUrl;
+      }
+    </script>
   </body>
 </html>
