@@ -41,9 +41,11 @@ li:hover {
   </head>
   <body>
 	  
-	  const oldUrl = 'https://www.old-domain.com/path/to/page.html';
-const newUrl = replaceDomain(oldUrl, 'old-domain', 'new-domain');
-console.log(newUrl); // Output: "https://www.climaso.com/path/to/page.html"
+	function replaceDomain(url, oldDomain, newDomain) {
+  const regex = new RegExp(oldDomain, 'gi');
+  return url.replace(regex, newDomain);
+}
+
 
     <h1>Welcome to my website!</h1>
     <p>This is a paragraph of text on my website.</p>
